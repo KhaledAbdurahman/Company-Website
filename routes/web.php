@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\TestmonialController;
 
 /*
 * Front Routes
@@ -44,6 +45,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // ======================================= Subscibers
         Route::controller(SubscriberController::class)->group(function(){
             Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
+        });
+
+        // ======================================= Testmonials
+        Route::controller(TestmonialController::class)->group(function(){
+            Route::resource('testmonials', TestmonialController::class);
         });
     });
 
