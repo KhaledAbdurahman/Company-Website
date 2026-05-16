@@ -8,6 +8,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestmonialController;
+use App\Http\Controllers\SettingController;
 
 /*
 * Front Routes
@@ -50,6 +51,11 @@ Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')->midd
         // ======================================= Testmonials
         Route::controller(TestmonialController::class)->group(function(){
             Route::resource('testmonials', TestmonialController::class);
+        });
+
+        // ======================================= Settings
+        Route::controller(SettingController::class)->group(function(){
+            Route::resource('settings', SettingController::class)->only(['index', 'update']);
         });
     });
 
