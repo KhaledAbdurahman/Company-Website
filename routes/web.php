@@ -9,15 +9,23 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestmonialController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\FrontController;
 
 /*
 * Front Routes
 */
-Route::name('front.')->group(function() {
-    Route::view('/', 'front.index')->name('index');
-    Route::view('/about', 'front.about')->name('about');
-    Route::view('/service', 'front.service')->name('service');
-    Route::view('/contact', 'front.contact')->name('contact');
+Route::name('front.')->controller(FrontController::class)->group(function() {
+    // ============================== Home Page
+    Route::get('/', 'index')->name('index');
+
+    // ============================== About Page
+    Route::get('/about', 'about')->name('about');
+
+    // ============================== Service Page
+    Route::get('/service', 'service')->name('service');
+
+    // =============================== Contact Page
+    Route::get('/contact', 'contact')->name('contact');
 });
 
 /**
