@@ -16,6 +16,7 @@ use App\Http\Controllers\FrontController;
 */
 Route::name('front.')->controller(FrontController::class)->group(function() {
     // ============================== Home Page
+    Route::post('/subscriber/store', 'subscriberStore')->name('subscriber.store');
     Route::get('/', 'index')->name('index');
 
     // ============================== About Page
