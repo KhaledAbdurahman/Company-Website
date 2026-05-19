@@ -26,6 +26,7 @@ Route::name('front.')->controller(FrontController::class)->group(function() {
     Route::get('/service', 'service')->name('service');
 
     // =============================== Contact Page
+    Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/contact', 'contact')->name('contact');
 });
 
